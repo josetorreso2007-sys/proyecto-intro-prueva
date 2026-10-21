@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BinaryShop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>BinaryShop 🛒</h1>
+        <div id="info-usuario"></div>
+    </header>
+
+    <main>
+        <!--  Autenticación de Rol -->
+        <section id="seccion-login" class="contenedor-card">
+            <h2>Iniciar Sesión</h2>
+            
+            <!--  Selecciónar de Rol -->
+            <div class="campo">
+                <label for="rol-select">Seleccione su rol:</label>
+                <select id="rol-select" onchange="mostrarFormularioLogin()">
+                    <option value="" disabled selected>-- Elija una opción --</option>
+                    <option value="comprador">Comprador</option>
+                    <option value="vendedor">Vendedor</option>
+                    <option value="admin">Administrador</option>
+                </select>
+            </div>
+
+            <!--  Usuario y Contraseña -->
+            <form id="formulario-login" style="display: none;" onsubmit="iniciarSesion(event)">
+                <div class="campo">
+                    <label for="nickname">Usuario (Nickname):</label>
+                    <input type="text" id="nickname" required placeholder="Ej: admin">
+                </div>
+
+                <div class="campo">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required placeholder="Ej: 123">
+                </div>
+
+                <button type="submit" class="btn-accion">Entrar</button>
+            </form>
+
+            <p id="mensaje-error" class="error"></p>
+        </section>
+
+        <!-- Área de contenido principal  -->
+        <section id="seccion-principal" style="display: none;">
+            <div id="contenido-rol"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
